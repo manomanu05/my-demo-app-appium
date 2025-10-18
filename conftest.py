@@ -2,6 +2,7 @@ from appium import webdriver
 from Utilities.ReadConfig import ReadConfig
 import pytest
 
+
 @pytest.fixture(scope="class")
 def setup(request):
     desired_caps = {
@@ -13,7 +14,8 @@ def setup(request):
         "noReset": True
     }
 
-    driver = webdriver.Remote(ReadConfig.getAppiumServer(), desired_caps)
+    # Hardcode the Appium server URL with port 4724
+    driver = webdriver.Remote("http://localhost:4724/wd/hub", desired_caps)
     request.cls.driver = driver
     yield driver
     driver.quit()
