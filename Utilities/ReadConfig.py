@@ -9,6 +9,30 @@ config.read(config_path)
 class ReadConfig:
 
     @staticmethod
+    def getPlatformName():
+        return config.get("device info", "platformName")
+
+    @staticmethod
+    def getPlatformVersion():
+        return config.get("device info", "platformVersion")
+
+    @staticmethod
+    def getDeviceName():
+        return config.get("device info", "deviceName")
+
+    @staticmethod
+    def getAppPath():
+        return config.get("device info", "app")
+
+    @staticmethod
+    def getAppPackage():
+        return config.get("device info", "appPackage")
+
+    @staticmethod
+    def getAppActivity():
+        return config.get("device info", "appActivity")
+
+    @staticmethod
     def getApplicationURL():
         return config.get("common info", "base_url")
 
